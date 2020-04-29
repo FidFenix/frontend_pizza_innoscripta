@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ProductsOverview from '../../components/products-overview/products-overview.component'
+import ProductsOverview from '../../components/products-overview/products-overview.component';
 
 import { Route } from 'react-router-dom';
 

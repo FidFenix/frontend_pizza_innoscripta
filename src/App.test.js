@@ -1,9 +1,15 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import { create } from "react-test-renderer";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import FooterComp from  './components/footer/footer.component';
+import HeaderComp from  './components/header/header.component';
+
+/*it('render correctly HeaderComp component', () => {  
+  const comp = create(<HeaderComp />).toJSON();
+  expect(comp).toMatchSnapshot();
+});*/
+
+it('render correctly FooterComp component', () => {  
+  const comp = create(<FooterComp />).toJSON();
+  expect(comp).toMatchSnapshot();
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import './category-preview.styles.scss'
-import ProductItem from '../product-item/product-item.component';
+import ProductItemComp from '../product-item/product-item.component';
 
 const CategoryPreview = ({title, items}) => (
     <div className = 'category-preview'>
@@ -9,8 +9,8 @@ const CategoryPreview = ({title, items}) => (
             {items
                 .filter((item, idx) => idx < 4)
                 .map((item) => (
-                    <ProductItem key={item.id} item={item}>
-                    </ProductItem>  
+                    <ProductItemComp key={item.id} item={item}>
+                    </ProductItemComp>  
                 ))
             }
         </div>

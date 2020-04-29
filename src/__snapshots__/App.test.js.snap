@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly FooterComp component 1`] = `
+<div
+  className="footer-content"
+>
+  <ul>
+    <li>
+      About
+    </li>
+    <li>
+      Contact us
+    </li>
+    <li>
+      Created by Fidel Mamani
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`render correctly HeaderComp component 1`] = `
+<div
+  className="footer-content"
+>
+  <ul>
+    <li>
+      About
+    </li>
+    <li>
+      Contact us
+    </li>
+    <li>
+      Created by Fidel Mamani
+    </li>
+  </ul>
+</div>
+`;
