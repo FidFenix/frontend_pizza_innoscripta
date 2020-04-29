@@ -1,0 +1,24 @@
+                {
+                    title: 'Hawaiian',
+                    imgUrl: 'https://unsplash.com/photos/eSeo6IzOV00';
+                    id: 1,
+                    linkUrl: ''
+                }
+                {
+                    title: 'Margherita',
+                    imgUrl: 'https://unsplash.com/photos/eSeo6IzOV00';
+                    id: 1,
+                    linkUrl: ''
+                }
+                {
+                    title: 'Pepperoni',
+                    imgUrl: 'https://unsplash.com/photos/eSeo6IzOV00';
+                    id: 1,
+                    linkUrl: ''
+                }
+                {
+                    title: 'Carbonara',
+                    imgUrl: 'https://unsplash.com/photos/eSeo6IzOV00';
+                    id: 1,
+                    linkUrl: ''
+                }
