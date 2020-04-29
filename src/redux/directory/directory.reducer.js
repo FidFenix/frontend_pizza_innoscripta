@@ -12,7 +12,7 @@ const INITIAL_STATE = {
             title: 'Italian',
             subtitle: 'Delicious',
             imageUrl: 'https://cdn.pixabay.com/photo/2015/02/01/05/20/supreme-pizza-619133_960_720.png',
-            id: 1,
+            id: 2,
             size: '',
             linkUrl: 'italian'
         },
@@ -20,7 +20,7 @@ const INITIAL_STATE = {
             title: 'Vegetarian',
             subtitle: 'Delicious',
             imageUrl: 'https://image.shutterstock.com/image-photo/lifted-vegetarian-pizza-slice-topping-600w-102239638.jpg',
-            id: 1,
+            id: 3,
             size: '',
             linkUrl: 'vegetarian'
         },
@@ -28,7 +28,7 @@ const INITIAL_STATE = {
             title: 'Home Signature',
             subtitle: 'Delicious',
             imageUrl: 'https://cdn.pixabay.com/photo/2017/09/30/15/10/pizza-2802332_960_720.jpg',
-            id: 1,
+            id: 4,
             size: 'large',
             linkUrl: 'specialty'
         },
@@ -36,7 +36,7 @@ const INITIAL_STATE = {
             title: 'American',
             subtitle: 'Delicious',
             imageUrl: 'https://cdn.pixabay.com/photo/2017/01/22/19/12/pizza-2000595_960_720.jpg',
-            id: 1,
+            id: 5,
             size: 'large',
             linkUrl: 'american'
         }

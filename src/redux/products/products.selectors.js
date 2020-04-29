@@ -7,7 +7,7 @@ export const selectProducts = createSelector(
     product => product.products
 );
 
-export const selectProductForPreview = createSelector(
+export const selectProductsForPreview = createSelector(
     [selectProducts],
     product => Object.keys(product).map((key) => product[key])
 );

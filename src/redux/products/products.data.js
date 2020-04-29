@@ -1,8 +1,8 @@
 const PRODUCTS_DATA = {
-    'hats':{
+    'classical':{
       id: 1,
       title: 'Classical',
-      routeName: 'store/classical',
+      routeName: 'products/classical',
       items: [
         {
           id: 1,
@@ -60,10 +60,10 @@ const PRODUCTS_DATA = {
         }
       ]
     },
-    'sneakers':{
+    'italian':{
       id: 2,
       title: 'Italian',
-      routeName: 'store/italian',
+      routeName: 'products/italian',
       items: [
         {
           id: 10,
@@ -115,10 +115,10 @@ const PRODUCTS_DATA = {
         }
       ]
     },
-    'jackets':{
+    'vegetarian':{
       id: 3,
       title: 'Vegetarian',
-      routeName: 'store/vegetarian',
+      routeName: 'products/vegetarian',
       items: [
         {
           id: 18,
@@ -152,9 +152,9 @@ const PRODUCTS_DATA = {
         }
       ]
     },
-    'women':{ id: 4,
+    'signature':{ id: 4,
       title: 'Home Signature',
-      routeName: 'store/homesignature',
+      routeName: 'products/signature',
       items: [
         {
           id: 23,
@@ -200,10 +200,10 @@ const PRODUCTS_DATA = {
         }
       ]
     },
-    'men':{
+    'american':{
       id: 5,
       title: 'American',
-      routeName: 'store/american',
+      routeName: 'products/american',
       items: [
         {
           id: 30,

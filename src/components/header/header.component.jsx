@@ -1,22 +1,42 @@
 import React from 'react';
+
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import {createStructuredSelector} from 'reselect';
+
+import Logo from '../../assets/yummipizza.png';
 import './header.styles.scss';
-const HeaderComp = () => (
+import { selectCurrentUser } from '../../redux/user/user.selector';
+
+const HeaderComp = ({currentUser}) => (
     <div className='header'>
-        <div className='logo-container'>
-            <div className='logo'>LOGO
+        <Link className='logo-container'>
+            <div className='logo' 
+                 style={{
+                     background: `url(${Logo})`
+                 }}
+            >
             </div>
-        </div>
+        </Link>
         <div className='options'>
-            <div className='option'>
-                <span>PIZZAS</span>
-            </div>
-            <div className='option'>
+            <Link className='option' to='/products'>
+                <span>PRODUCTS</span>
+            </Link>
+            <Link className='option' to='/products'>
                 <span>DELIVERY</span>
-            </div>
-            <div className='option'>
-                <span>SIGN IN</span>
-            </div>
+            </Link>
+            {
+                currentUser?
+                <div className='option' onClick={()=> console.log("sign out")}> SIGN OUT</div>
+                :
+                <Link className='option' to='/signin'>SIGN IN</Link>
+            }
         </div>
     </div>
 )
-export default HeaderComp;
+
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+})
+
+export default connect(mapStateToProps)(HeaderComp);
