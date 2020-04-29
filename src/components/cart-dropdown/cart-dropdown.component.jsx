@@ -24,10 +24,10 @@ const CartDropdownComp = ({cartItems, itemCount, history, dispatch}) => (
             }
         </div>
         <CustomButtonComp onClick = {()=> {
-            history.push('/checkout') 
+            history.push('/payout') 
             dispatch(toggleCartHidden());
             }} >
-            GO TO CHECKOUT
+            BUY PIZZAS
         </CustomButtonComp>
     </div>
 )

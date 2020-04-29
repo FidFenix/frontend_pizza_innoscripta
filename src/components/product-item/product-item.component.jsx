@@ -21,7 +21,7 @@ const ProductItemComp = ({ item, addItem}) => {
         </div>
         <div className='product-footer'>
         <span className='name'>{name}</span>
-        <span className='price'>{price}</span>
+        <span className='price'>{`$ ${price}`}</span>
         </div>
         <CustomButtonComp onClick = {()=> addItem(item)} inverted >
             Add to the Cart
