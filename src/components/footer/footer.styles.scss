@@ -1,0 +1,15 @@
+.footer-content ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    height: 5vw;
+    justify-content: space-between;
+    background-color: black;
+}
+.footer-content ul li {
+    color: white;
+    list-style: none;
+    padding: 1em;
+    cursor: pointer;
+}
