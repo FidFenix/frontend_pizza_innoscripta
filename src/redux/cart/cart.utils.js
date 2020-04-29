@@ -21,12 +21,18 @@ export const removeItemFromCart = (cartItems, cartItem) => {
     return cartItems.filter((item) => item.id !== cartItem.id);
 };
 
-export const removeItemByOne = (cartItems, cartItemToRemove) => {
+export const removeItemByOne = (cartItems, cartItem) => {
 
-    return cartItems.map(cartItem =>
-        cartItem.id === cartItemToRemove.id 
-            ?
-            { ...cartItem, quantity: cartItem.quantity - 1}
-            : cartItem
-        )
+    let i;
+    const newArray = [];
+    for(i = 0; i < cartItems.length; i++) {
+        if( cartItems[i].id === cartItem.id ) {
+            if( 1 < cartItems[i].quantity ) {
+                newArray.push({ ...cartItems[i], quantity: cartItem.quantity - 1});
+            }
+        }else {
+            newArray.push(cartItems[i]);
+        }
+    }
+    return newArray;
 };
