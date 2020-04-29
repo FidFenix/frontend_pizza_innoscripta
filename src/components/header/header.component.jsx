@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './header.styles.scss';
 const HeaderComp = () => (
     <div className='header'>
         <div className='logo-container'>

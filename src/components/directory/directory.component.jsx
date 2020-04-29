@@ -2,51 +2,69 @@ import React, { Component } from 'react';
 
 import './directory.styles.scss';
 
-import MenuItemComp from '../menu-item/menu-item.componeent';
+import MenuItemComp from '../menu-item/menu-item.component';
 
-clas DirectoryComp extend Component{
+class DirectoryComp extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            sections = [
+            sections : [
                 {
                     title: 'Classical',
-                    imgUrl: 'https://images.freeimages.com/images/large-previews/e85/pizza-1325642.jpg';
+                    subtitle: 'Delicious',
+                    imageUrl: 'https://cdn.pixabay.com/photo/2016/03/05/20/02/appetite-1238621_960_720.jpg',
                     id: 1,
+                    size: '',                   
                     linkUrl: 'classical'
-                }
+                },
                 {
                     title: 'Italian',
-                    imgUrl: 'https://as1.ftcdn.net/jpg/02/49/58/08/500_F_249580864_rMMc1mrHyC5804c6f15TSvW99ifppmxX.jpg;
+                    subtitle: 'Delicious',
+                    imageUrl: 'https://cdn.pixabay.com/photo/2015/02/01/05/20/supreme-pizza-619133_960_720.png',
                     id: 1,
+                    size: '',
                     linkUrl: 'italian'
-                }
+                },
                 {
                     title: 'Vegetarian',
-                    imgUrl: 'https://as1.ftcdn.net/jpg/02/62/84/78/500_F_262847803_ND3nRIvWhGjo9mwTT4u16WHYUMCoJ32W.jpg';
+                    subtitle: 'Delicious',
+                    imageUrl: 'https://image.shutterstock.com/image-photo/lifted-vegetarian-pizza-slice-topping-600w-102239638.jpg',
                     id: 1,
+                    size: '',
                     linkUrl: 'vegetarian'
-                }
+                },
                 {
                     title: 'Home Signature',
-                    imgUrl: 'https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
+                    subtitle: 'Delicious',
+                    imageUrl: 'https://cdn.pixabay.com/photo/2017/09/30/15/10/pizza-2802332_960_720.jpg',
                     id: 1,
+                    size: 'large',
                     linkUrl: 'specialty'
-                }
+                },
                 {
                     title: 'American',
-                    imgUrl: 'https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
+                    subtitle: 'Delicious',
+                    imageUrl: 'https://cdn.pixabay.com/photo/2017/01/22/19/12/pizza-2000595_960_720.jpg',
                     id: 1,
+                    size: 'large',
                     linkUrl: 'american'
                 }
             ]
         }
     }
+    render() {
+        const { sections } = this.state;
+        return(
+            <div className='directory-menu'>
+                {
+                    sections.map(({id, ...otherProps}) => (
+                        <MenuItemComp key = {id} {...otherProps}/>                        
+                    ))
+                }
+
+            </div>
+        )
+    }
 }
-const DirectoryComp = ()=> (
-    <div className='directory-menu'>
-        <MenuItemComp/>
-    </div>
-)
 
 export default DirectoryComp;
