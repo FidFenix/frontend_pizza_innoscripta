@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './directory.styles.scss';
+
 import MenuItemComp from '../menu-item/menu-item.componeent';
 
 const DirectoryComp = ()=> (
