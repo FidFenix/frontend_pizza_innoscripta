@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
-import { removeAllItemsFromCart } from '../../redux/cart/cart.actions';
+import { removeAllItemsFromCart, toggleCartHidden } from '../../redux/cart/cart.actions';
 
 import { ReactComponent as Logo } from '../../assets/yummipizza.svg';
 
@@ -20,6 +20,7 @@ class HeaderComp extends Component {
     logout = () => {
         authenticationService.logout();
         this.props.removeAllItems();
+        if(!this.props.isCartHidden)this.props.cartHidden();
     }
 
     render() {
@@ -30,19 +31,27 @@ class HeaderComp extends Component {
                    <Logo className = 'logo'></Logo>
                </Link>
                <div className = 'options'>
-                   <Link className = 'option' to='/products'>
-                       <span>PRODUCTS</span>
-                   </Link>
-                   <Link className = 'option' to='/products'>
-                       <span>DELIVERY</span>
-                   </Link>
+                    <Link className='option' to='/'>HOME</Link>
+                   {
+                       currentUser?
+                       (<Link className = 'option' to='/products'>
+                        <span>PRODUCTS</span>
+                        </Link>):
+                        (null)
+                   }
                    {
                        currentUser?
                        <div className='option' onClick={this.logout}> SIGN OUT</div>
                        :
                        <Link className='option' to='/signin'>SIGN IN</Link>
                    }
-                   <CartIconComp/>
+                   {
+                       currentUser?
+                       <CartIconComp/>
+                       :
+                       (null)
+                   }
+                   
                </div>
                {
                    isCartHidden?
@@ -60,7 +69,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    removeAllItems: () => dispatch(removeAllItemsFromCart())
+    removeAllItems: () => dispatch(removeAllItemsFromCart()),
+    cartHidden: () => dispatch(toggleCartHidden())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderComp);
