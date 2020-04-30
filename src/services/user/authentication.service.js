@@ -19,7 +19,7 @@ function login(username, password) {
         headers: { Authorization: "Basic " + btoa(username + ":" + password) }
     };
 
-    return fetch(`${config.apiUrl}/auth/jwt/token`, requestOptions)
+    return fetch(`${config.apiUrl}/auth/login/token`, requestOptions)
         .then(handleResponse)
         .then(user => {
             if (user) {
@@ -32,20 +32,20 @@ function login(username, password) {
 }
 
 function logout() {
-    // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     currentUserSubject.next(null);
 }
 
 function signup( name, email, password ) {
 
+    const primaryRole = 1;
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ name, email, password, primaryRole})
     };
 
-    return fetch(`${config.apiUrl}/users/authenticate/`, requestOptions)
+    return fetch(`${config.apiUrl}/auth/register/`, requestOptions)
         .then(handleResponse)
         .then(user => {
             localStorage.setItem('currentUser', JSON.stringify(user));
