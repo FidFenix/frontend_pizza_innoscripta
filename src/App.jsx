@@ -15,9 +15,9 @@ import ProductsPage from './pages/products-page/products-page.component';
 import PayPage from './pages/pay-page/pay-page.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.component';
 import { authenticationService } from './services/user/authentication.service';
-import { configureFakeBackend } from './services/utils/fake-backend.js';
+//import { configureFakeBackend } from './services/utils/fake-backend.js';
 
-configureFakeBackend();
+//configureFakeBackend();
 
 class App extends Component {
 

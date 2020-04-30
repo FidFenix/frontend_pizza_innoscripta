@@ -13,20 +13,20 @@ export const authenticationService = {
     get currentUserValue () { return currentUserSubject.value }
 };
 
-function login(email, password) {
+function login(username, password) {
     const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        method: 'GET',
+        headers: { Authorization: "Basic " + btoa(username + ":" + password) }
     };
 
-    return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
+    return fetch(`${config.apiUrl}/auth/jwt/token`, requestOptions)
         .then(handleResponse)
         .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            currentUserSubject.next(user);
-
+            if (user) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                currentUserSubject.next(user);
+            }
+            
             return user;
         });
 }

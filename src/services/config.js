@@ -1,3 +1,2 @@
-const config = { apiUrl: 'http://localhost:4000'};
-
+const config = { apiUrl: 'http://localhost'};
 export default config;
