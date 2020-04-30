@@ -11,7 +11,7 @@ const DirectoryComp = ({ sections }) => (
     <div className='directory-menu'>
        {
            sections.map(({id, ...otherProps}) => (
-               <MenuItemComp key = {id} {...otherProps}/>                        
+            <MenuItemComp key = {id} {...otherProps}/>                       
            ))
        }
     </div>

@@ -34,10 +34,9 @@ class HeaderComp extends Component {
                     <Link className='option' to='/'>HOME</Link>
                    {
                        currentUser?
-                       (<Link className = 'option' to='/products'>
-                        <span>PRODUCTS</span>
-                        </Link>):
-                        (null)
+                       <Link className = 'option' to='/products'>PRODUCTS</Link>
+                       :
+                       (null)
                    }
                    {
                        currentUser?

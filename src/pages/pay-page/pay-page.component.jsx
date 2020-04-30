@@ -39,7 +39,7 @@ const PayPage = ({cartItems, total}) => (
         <div className='test-warning'>
             *please use for testing
             <br/>
-            4242 4242 4242 4242 42 - Exp: 01/29 - CVV:123
+            4242 4242 4242 4242 - Exp: 01/29 - CVV:123
         </div>
         <StripeCheckoutButtonComp price = {total}/>
     </div>

@@ -14,9 +14,6 @@ class SignInComp extends Component {
             email: '',
             password: ''
         }
-        if (authenticationService.currentUserValue) { 
-            props.history.push('/');
-        }
     }
 
     handleSubmit = async event => {

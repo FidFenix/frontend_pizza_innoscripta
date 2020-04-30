@@ -1,13 +1,22 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { createStructuredSelector } from 'reselect';
 
-const PrivateRouteHoC = ({ component: Component, ...rest })=> (
-    <Route {...rest} render={(props) => (
-        props.currentUser?
-          <Component {...props} />
+const PrivateRouteHoC = ({ currentUser, component: Component , path})=> {
+    return(
+    <Route path={path} render={(props) => (
+        currentUser?
+          <Component {...props}/>
           :
           <Redirect to='/signin' />
       )} />
-);
+)};
 
-export default PrivateRouteHoC;
+
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+});
+
+export default connect(mapStateToProps)(PrivateRouteHoC);
