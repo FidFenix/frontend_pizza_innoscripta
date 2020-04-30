@@ -9,7 +9,7 @@ class SignUpComp extends Component {
     constructor(props){
         super(props);
         this.state = {
-            displayName: '',
+            fullName: '',
             email: '',
             password: '',
             confirmPassword:''
@@ -18,7 +18,7 @@ class SignUpComp extends Component {
 
     handleSubmit = async event=> {
         event.preventDefault();
-        const {displayName, email, password, confirmPassword} = this.state;
+        const {fullName, email, password, confirmPassword} = this.state;
 
         if (password !== confirmPassword) {
             alert("password dont match");
@@ -58,10 +58,10 @@ class SignUpComp extends Component {
                 <form className='sign-up-form' onSubmit={this.handleSubmit}>
                     <FormInputComp
                         type = 'text'
-                        name = 'displayName'
+                        name = 'fullName'
                         value = {displayName}
                         onChange={this.handleChange}
-                        label='Display Name'
+                        label='Full Name'
                         required
                     />
                     <FormInputComp
@@ -69,7 +69,7 @@ class SignUpComp extends Component {
                         name = 'email'
                         value = {email}
                         onChange={this.handleChange}
-                        label='label'
+                        label='email'
                         required
                     />
                     <FormInputComp

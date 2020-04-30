@@ -10,7 +10,7 @@ const StripeCheckoutButtonComp = ({price}) => {
     return (
         <StripeCheckout
             label='Pay Now'
-            name = 'Fidel Clothing'
+            name = 'The Yummi Pizza'
             billingAddress
             shippingAddress
             image = 'https://svgshare.com/i/CUz.svg'

@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { createStructuredSelector } from 'reselect';
-import { selectCurrentUser } from '../../redux/user/user.selector';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 
-//import CartIcon from '../cart-icon/cart-icon.component';
-
 import { ReactComponent as Logo } from '../../assets/yummipizza.svg';
+
+import { authenticationService } from '../../services/user/authentication.service';
 import './header.styles.scss';
 import CartDropdownComp from '../cart-dropdown/cart-dropdown.component';
 import CartIconComp from '../cart-icon/cart-icon.component';
@@ -28,7 +28,7 @@ const HeaderComp = ({currentUser, isCartHidden}) => (
             </Link>
             {
                 currentUser?
-                <div className='option' onClick={()=> console.log("sign out")}> SIGN OUT</div>
+                <div className='option' onClick={()=> authenticationService.logout()}> SIGN OUT</div>
                 :
                 <Link className='option' to='/signin'>SIGN IN</Link>
             }

@@ -1,33 +1,45 @@
 import React, {Component} from 'react';
 
 import './sign-in.styles.scss';
+
 import CustomButtonComp from '../custom--button/custom-button.component';
 import FormInputComp from '../form-input/form-input.component';
+
+import { authenticationService } from '../../services/user/authentication.service';
 
 class SignInComp extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            email:'',
-            password:''
+            email: '',
+            password: ''
+        }
+        if (authenticationService.currentUserValue) { 
+            props.history.push('/');
         }
     }
 
-    handleSubmit = async event=> {
-        event.preventDefault(); // to prevent submitting
-
-        const {email, password} = this.state;
-        this.setState({email:'', password:''});
+    handleSubmit = async event => {
+        event.preventDefault();
+        const { email, password } = this.state;
+        try {
+            await authenticationService.login( email, password );
+            this.setState( { email:'', password: '' } );
+            
+        }catch( error ){
+            console.log(error);
+        }
+        this.setState( { email : '', password : '' } );
     }
 
     handleChange = event => {
+
         const {value, name} = event.target;
 
-        this.setState({[name]: value})  //like a mirror, dinamically
+        this.setState({[name]: value})
     } 
     render() {
-        return(
+        return( 
             <div className='sign-in'>
                 <h2 className = 'title'>I already have an Account</h2>
                 <span>Sign in with your email and password</span>

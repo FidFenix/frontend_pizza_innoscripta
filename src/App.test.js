@@ -4,7 +4,7 @@ import { create } from "react-test-renderer";
 import FooterComp from  './components/footer/footer.component';
 import HeaderComp from  './components/header/header.component';
 
-/*it('render correctly HeaderComp component', () => {  
+/*it('render correctly HeaderComp componenjt', () => {  
   const comp = create(<HeaderComp />).toJSON();
   expect(comp).toMatchSnapshot();
 });*/
