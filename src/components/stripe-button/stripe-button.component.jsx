@@ -1,12 +1,16 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
-import axios from 'axios';
+import { buyService } from '../../services/buy/buy.service';
 
-const StripeCheckoutButtonComp = ({price}) => {
+import { connect } from 'react-redux';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { createStructuredSelector } from 'reselect';
+
+const StripeCheckoutButtonComp = ({price, currentUser}) => {
     const publishableKey = 'pk_test_bxSZOxvWlgu4GEgefIAHRGlZ00Q7vxRUYb';
 
-    const onToken = token => {
-        console.log(token)
+    const onToken = ( currentUser, token ) => {
+        buyService.buyPizzas(currentUser, token);
     }
     return (
         <StripeCheckout
@@ -22,4 +26,9 @@ const StripeCheckoutButtonComp = ({price}) => {
     )
 }
 
-export default StripeCheckoutButtonComp;
+
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+});
+
+export default connect(mapStateToProps)(StripeCheckoutButtonComp);
