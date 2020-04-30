@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 
-
 import CustomButtonComp from '../custom--button/custom-button.component';
 import FormInputComp from '../form-input/form-input.component';
+
+import { authenticationService } from '../../services/user/authentication.service';
+
 import './sign-up.styles.scss';
 
 class SignUpComp extends Component {
@@ -16,22 +18,22 @@ class SignUpComp extends Component {
         }
     }
 
-    handleSubmit = async event=> {
+    handleSubmit = async event => {
         event.preventDefault();
         const {fullName, email, password, confirmPassword} = this.state;
 
         if (password !== confirmPassword) {
-            alert("password dont match");
+            alert("passwords do not match");
             return;
         }
-        /*
+        
         try {
-            const { user } = await auth.createUserWithEmailAndPassword(
+            await authenticationService.signup(
+                fullName,
                 email,
                 password
             );
 
-            await createUserProfileDocument(user, {displayName});
 
             this.setState({
                 displayName: '',
@@ -41,7 +43,7 @@ class SignUpComp extends Component {
             })
         }catch(error) {
             console.log(error);
-        }*/
+        }
     };
 
     handleChange = event => {

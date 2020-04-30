@@ -15,9 +15,10 @@ export function configureFakeBackend() {
         return new Promise((resolve, reject) => {
             // wrap in timeout to simulate server api call
             setTimeout(() => {
-                // authenticate - public
+
                 if (url.endsWith('/users/authenticate') && opts.method === 'POST') {
                     const params = JSON.parse(opts.body);
+                    console.log(params)
                     const user = users.find(x => x.email === params.email && x.password === params.password);
                     if (!user) return error('Username or password is incorrect');
                     return ok({
