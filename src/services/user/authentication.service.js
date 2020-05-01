@@ -28,7 +28,7 @@ function login(username, password) {
             }
             
             return user;
-        });
+        }).catch(error => alert('Email or Password Incorrect'));
 }
 
 function logout() {
@@ -38,7 +38,7 @@ function logout() {
 
 function signup( name, email, password ) {
 
-    const primaryRole = 1;
+    const primaryRole = '1';
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -51,5 +51,5 @@ function signup( name, email, password ) {
             localStorage.setItem('currentUser', JSON.stringify(user));
             currentUserSubject.next(user);
             return user;
-        });
+        }).catch(error => alert(error));
 }

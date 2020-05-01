@@ -24,7 +24,7 @@ const PayPage = ({cartItems, total}) => (
                 <span>Quantity</span>
             </div>
             <div className='header-block'>
-                <span>Price</span>
+                <span>Unit Price</span>
             </div>
             <div className='header-block'>
                 <span>Remove</span>
@@ -36,12 +36,22 @@ const PayPage = ({cartItems, total}) => (
             ))
         }
         <div className='total'> <span>TOTAL: ${total}</span></div>
-        <div className='test-warning'>
-            *please use for testing
-            <br/>
-            4242 4242 4242 4242 - Exp: 01/29 - CVV:123
-        </div>
-        <StripeCheckoutButtonComp price = {total}/>
+        {
+            total === 0?
+            (<div className='nothing'> <span>Nothing to buy yet, go back to Products</span></div>)
+            :
+            <div className='buy-items'>
+                <div className='test-warning'>
+                    *please use for testing
+                <br/>
+                    4242 4242 4242 4242 - Exp: 01/29 - CVV:123
+                </div>
+                <StripeCheckoutButtonComp  price = {total}/>
+            </div>
+        }
+
+
+        
     </div>
 );
 

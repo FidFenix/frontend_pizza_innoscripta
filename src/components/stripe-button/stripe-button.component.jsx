@@ -4,16 +4,20 @@ import { buyService } from '../../services/buy/buy.service';
 
 import { connect } from 'react-redux';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { selectCartItems } from '../../redux/cart/cart.selectors';
+import { removeAllItemsFromCart } from '../../redux/cart/cart.actions';
 import { createStructuredSelector } from 'reselect';
 
-const StripeCheckoutButtonComp = ({price, currentUser}) => {
+import './stripe-button.styles.scss';
+const StripeCheckoutButtonComp = ({price, currentUser, items, removeAllItems}) => {
     const publishableKey = 'pk_test_bxSZOxvWlgu4GEgefIAHRGlZ00Q7vxRUYb';
 
-    const onToken = ( currentUser, token ) => {
-        buyService.buyPizzas(currentUser, token);
+    const onToken = ( token ) => {
+        buyService.buyPizzas(currentUser, token, items, price );
+        removeAllItems();
     }
     return (
-        <StripeCheckout
+        <StripeCheckout clasName = 'stripe-button'
             label='Pay Now'
             name = 'The Yummi Pizza'
             billingAddress
@@ -26,9 +30,13 @@ const StripeCheckoutButtonComp = ({price, currentUser}) => {
     )
 }
 
-
 const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser,
+    items: selectCartItems
 });
 
-export default connect(mapStateToProps)(StripeCheckoutButtonComp);
+const mapDispatchToProps = (dispatch) => ({
+    removeAllItems: ()=> dispatch(removeAllItemsFromCart())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(StripeCheckoutButtonComp);

@@ -1,7 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 import axios from 'axios';
-import config from '../config';
-
+import config from '../config'
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
 
 export const buyService = {
@@ -10,23 +9,14 @@ export const buyService = {
     get currentUserValue () { return currentUserSubject.value }
 };
 
-function buyPizzas(user, data) {
-    const requestOptions = {
-        method: 'POST',
-        headers: { token: 'buyService' },
-        body: {user, data}
+function buyPizzas(user, userinfo, items, price) {
+    const header = {
+        headers: {
+            Authorization: `Bearer ${user.data.jwt}`},
     };
-    return axios({
-        url: `${config.apiUrl}/buy/`,
-        ...requestOptions
-    }).then(resp => {
+
+    return axios.post(`${config.apiUrl}/buyitems/`, {user, userinfo, items, price}, header ).then(resp => {
+        console.log(resp);
         return resp;
     }).catch(error => alert(error));
-
-    /*
-    return fetch(`${config.apiUrl}/buy/`, requestOptions)
-        .then(handleResponse)
-        .then(resp => {
-            return resp;
-        }).catch(error => alert(error));*/
 }
