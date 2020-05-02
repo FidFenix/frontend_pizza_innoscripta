@@ -1,7 +1,7 @@
 import { BehaviorSubject } from 'rxjs';
 
 import config from '../config';
-import { handleResponse } from '../utils/handle.response';
+import axios from 'axios';
 
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
 
@@ -19,16 +19,13 @@ function login(username, password) {
         headers: { Authorization: "Basic " + btoa(username + ":" + password) }
     };
 
-    return fetch(`${config.apiUrl}/auth/login/token`, requestOptions)
-        .then(handleResponse)
-        .then(user => {
-            if (user) {
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                currentUserSubject.next(user);
-            }
-            
-            return user;
-        }).catch(error => alert('Email or Password Incorrect'));
+    return axios.post(`${config.apiUrl}/auth/login/token`, requestOptions ).then(user => {
+        if (user) {
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            currentUserSubject.next(user);
+        }
+        return user;
+    }).catch(error => alert(error));
 }
 
 function logout() {
@@ -39,17 +36,9 @@ function logout() {
 function signup( name, email, password ) {
 
     const primaryRole = '1';
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password, primaryRole})
-    };
-
-    return fetch(`${config.apiUrl}/auth/register/`, requestOptions)
-        .then(handleResponse)
-        .then(user => {
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            currentUserSubject.next(user);
-            return user;
-        }).catch(error => alert(error));
+    return axios.post(`${config.apiUrl}/auth/register/`, { name, email, password, primaryRole} , {'Content-Type': 'application/json' } ).then(user => {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        currentUserSubject.next(user);
+        return user;
+    }).catch(error => alert(error));
 }
