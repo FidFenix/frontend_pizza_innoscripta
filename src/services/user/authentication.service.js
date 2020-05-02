@@ -15,11 +15,10 @@ export const authenticationService = {
 
 function login(username, password) {
     const requestOptions = {
-        method: 'GET',
         headers: { Authorization: "Basic " + btoa(username + ":" + password) }
     };
 
-    return axios.post(`${config.apiUrl}/auth/login/token`, requestOptions ).then(user => {
+    return axios.get(`${config.apiUrl}/auth/login/token/`,  requestOptions).then(user => {
         if (user) {
             localStorage.setItem('currentUser', JSON.stringify(user));
             currentUserSubject.next(user);
