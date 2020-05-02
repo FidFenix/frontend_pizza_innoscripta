@@ -12,7 +12,10 @@ export const buyService = {
 function buyPizzas(user, userinfo, items, price) {
     const header = {
         headers: {
-            Authorization: `Bearer ${user.data.jwt}`},
+            Authorization: `Bearer ${user.data.jwt}`
+        },
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin':'http://ec2-3-124-217-139.eu-central-1.compute.amazonaws.com/'
     };
 
     return axios.post(`${config.apiUrl}/buyitems/`, {user, userinfo, items, price}, header ).then(resp => {
