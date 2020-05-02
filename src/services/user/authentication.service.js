@@ -33,9 +33,13 @@ function logout() {
 }
 
 function signup( name, email, password ) {
-
+    
+    const requestOptions = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin':'http://localhost:3000'
+    }
     const primaryRole = '1';
-    return axios.post(`${config.apiUrl}/auth/register/`, { name, email, password, primaryRole} , {'Content-Type': 'application/json' } ).then(user => {
+    return axios.post(`${config.apiUrl}/auth/register/`, { name, email, password, primaryRole} , requestOptions ).then(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         currentUserSubject.next(user);
         return user;
