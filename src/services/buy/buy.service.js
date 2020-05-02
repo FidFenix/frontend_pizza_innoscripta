@@ -14,8 +14,7 @@ function buyPizzas(user, userinfo, items, price) {
         headers: {
             Authorization: `Bearer ${user.data.jwt}`
         },
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin':'http://ec2-3-124-217-139.eu-central-1.compute.amazonaws.com/'
+        'Content-Type': 'application/json'
     };
 
     return axios.post(`${config.apiUrl}/buyitems/`, {user, userinfo, items, price}, header ).then(resp => {

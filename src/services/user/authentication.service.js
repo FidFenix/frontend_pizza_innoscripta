@@ -15,8 +15,7 @@ export const authenticationService = {
 
 function login(username, password) {
     const requestOptions = {
-        headers: { Authorization: "Basic " + btoa(username + ":" + password) },
-        'Access-Control-Allow-Origin':'http://ec2-3-124-217-139.eu-central-1.compute.amazonaws.com'
+        headers: { Authorization: "Basic " + btoa(username + ":" + password) }
     };
     
     return axios.get(`${config.apiUrl}/auth/login/token`, requestOptions).then(user => {
@@ -36,8 +35,7 @@ function logout() {
 function signup( name, email, password ) {
     
     const requestOptions = {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin':'http://ec2-3-124-217-139.eu-central-1.compute.amazonaws.com/'
+        'Content-Type': 'application/json'
     }
     const primaryRole = '1';
     return axios.post(`${config.apiUrl}/auth/register/`, { name, email, password, primaryRole} , requestOptions ).then(user => {
