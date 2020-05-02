@@ -16,9 +16,6 @@ import PayPage from './pages/pay-page/pay-page.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.component';
 import PrivateRouteHoC from './components/private-route/private-route.component';
 import { authenticationService } from './services/user/authentication.service';
-//import { configureFakeBackend } from './services/utils/fake-backend.js';
-
-//configureFakeBackend();
 
 class App extends Component {
 
