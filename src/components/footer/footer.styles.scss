@@ -1,8 +1,7 @@
 .footer-content {
-    padding-top: 20px;
-    left:0;
-    bottom:0;
-    right:0;
+    margin-top: -100px;
+    position: relative;
+    clear: both;
 }
 .footer-content ul{
     display: flex;
@@ -12,10 +11,11 @@
     height: 5vw;
     justify-content: space-between;
     background-color: #fd7e14;
+    clear: both;
 }
 .footer-content ul li {
     color: black;
     list-style: none;
-    padding: 1em;
     cursor: pointer;
+    margin: 20px;
 }

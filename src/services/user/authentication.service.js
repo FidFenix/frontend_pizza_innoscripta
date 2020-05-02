@@ -15,7 +15,8 @@ export const authenticationService = {
 
 function login(username, password) {
     const requestOptions = {
-        headers: { Authorization: "Basic " + btoa(username + ":" + password) }
+        headers: { Authorization: "Basic " + btoa(username + ":" + password) },
+        'Access-Control-Allow-Origin':'*'
     };
     
     return axios.get(`${config.apiUrl}/auth/login/token`, requestOptions).then(user => {
@@ -36,7 +37,7 @@ function signup( name, email, password ) {
     
     const requestOptions = {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin':'http://localhost:3000'
+        'Access-Control-Allow-Origin':'*'
     }
     const primaryRole = '1';
     return axios.post(`${config.apiUrl}/auth/register/`, { name, email, password, primaryRole} , requestOptions ).then(user => {
