@@ -10,21 +10,21 @@ The Project allows users to register, make order for pizzas they can pick on the
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)<br/>
 and it is using the next libraries:<br>
-Markup : - [x] axios <br/>
-        - [x] node-sass<br/>
-        - [x] react<br/>
-        - [x] react-dom<br/>
-        - [x] react-promise-tracker<br/>
-        - [x] react-redux<br/>
-        - [x] react-router-dom<br/>
-        - [x] react-scripts<br/>
-        - [x] react-stripe-checkout<br/>
-        - [x] redux<br/>
-        - [x] redux-logger<br/>
-        - [x] redux-persist<br/>
-        - [x] reselect<br/>
-        - [x] rxjs<br/>
-        - [x] styled-components<br/>
+Markup :    - [x] axios <br/>
+            - [x] node-sass<br/>
+            - [x] react<br/>
+            - [x] react-dom<br/>
+            - [x] react-promise-tracker<br/>
+            - [x] react-redux<br/>
+            - [x] react-router-dom<br/>
+            - [x] react-scripts<br/>
+            - [x] react-stripe-checkout<br/>
+            - [x] redux<br/>
+            - [x] redux-logger<br/>
+            - [x] redux-persist<br/>
+            - [x] reselect<br/>
+            - [x] rxjs<br/>
+            - [x] styled-components<br/>
 
 ## Usage and Installation
  Markup : * Installation<br/>
