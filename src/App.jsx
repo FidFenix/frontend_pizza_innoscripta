@@ -16,6 +16,7 @@ import ProductsPage from './pages/products-page/products-page.component';
 import PayPage from './pages/pay-page/pay-page.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.component';
 import PrivateRouteHoC from './components/private-route/private-route.component';
+import OrdersPage from './pages/orders-page/orders-page.component';
 import { authenticationService } from './services/user/authentication.service';
 
 class App extends Component {
@@ -47,6 +48,7 @@ class App extends Component {
           <Route exact path='/' component={HomePage}></Route>
           <PrivateRouteHoC path='/products' component={ProductsPage} ></PrivateRouteHoC>
           <PrivateRouteHoC path='/payout' component={PayPage} ></PrivateRouteHoC>
+          <PrivateRouteHoC path='/buys' component={OrdersPage} ></PrivateRouteHoC>
           <Route exact path='/signin' render={()=>this.props.currentUser? (<Redirect to='/products'/>):(<SignInAndSignUpPage/>)}></Route>
         </Switch>
         <FooterComp/>

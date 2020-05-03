@@ -40,6 +40,12 @@ class HeaderComp extends Component {
                    }
                    {
                        currentUser?
+                       <Link className='option' to='/buys'>MY ORDERS</Link>
+                       :
+                       (null)
+                   }
+                   {
+                       currentUser?
                        <div className='option' onClick={this.logout}> SIGN OUT</div>
                        :
                        <Link className='option' to='/signin'>SIGN IN</Link>

@@ -1,20 +1,19 @@
 import axios from 'axios';
-import config from '../config'
+import config from '../config';
 
-export const buyService = {
-    buyPizzas
+export const ordersService = {
+    getBuys
 };
 
-function buyPizzas(user, userinfo, items, price) {
+function getBuys(user) {
     const headers = {
         headers: {
             Authorization: `Bearer ${user.data.data.jwt}`
         }
     };
 
-   // console.log(JSON.stringify(header));
-    return axios.post(`${config.apiUrl}/buyitems/`, {user, userinfo, items, price}, headers ).then(resp => {
-        alert(resp.data.message);
+    return axios.post(`${config.apiUrl}/buys/`, {user}, headers ).then(resp => {
+        console.log(resp);
         return resp;
     }).catch(error => {
         if(error.response.status === 400){
