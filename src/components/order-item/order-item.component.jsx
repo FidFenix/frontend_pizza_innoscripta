@@ -3,10 +3,9 @@ import React from 'react';
 import './order-item.styles.scss';
 
 const OrderItemComp = ({item}) => {
-    console.log(item);
     const {address_line1, last4, total, name, created_at} = item;
 
-    const transformName = (name) =>{
+    const transformName = (name) => {
         return name.split(" ")[0];
     }
     return(

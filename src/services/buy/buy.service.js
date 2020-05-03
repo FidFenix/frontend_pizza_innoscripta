@@ -17,6 +17,7 @@ function buyPizzas(user, userinfo, items, price) {
         alert(resp.data.message);
         return resp;
     }).catch(error => {
+        console.log(error);
         if( "response" in error ){
             if( error.response !== undefined ){
                 if('status' in error.response ) { alert(error.response.data.message);}

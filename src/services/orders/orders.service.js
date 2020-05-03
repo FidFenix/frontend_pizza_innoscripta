@@ -12,7 +12,7 @@ function getBuys(user) {
         }
     };
 
-    return axios.post(`${config.apiUrl}/buys/`, {user}, headers ).then(resp => {
+    return axios.get(`${config.apiUrl}/buys/`, headers ).then(resp => {
         console.log(resp);
         return resp;
     }).catch(error => {

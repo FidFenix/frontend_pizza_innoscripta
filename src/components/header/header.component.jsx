@@ -8,8 +8,6 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { removeAllItemsFromCart, toggleCartHidden } from '../../redux/cart/cart.actions';
 
-import { ReactComponent as Logo } from '../../assets/yummipizza.svg';
-
 import { authenticationService } from '../../services/user/authentication.service';
 import './header.styles.scss';
 import CartDropdownComp from '../cart-dropdown/cart-dropdown.component';
@@ -28,7 +26,7 @@ class HeaderComp extends Component {
         return(
             <div className='header'>
                <Link className = 'logo-container' to = '/'>
-                   <Logo className = 'logo'></Logo>
+                   <div className = 'logo'></div>
                </Link>
                <div className = 'options'>
                     <Link className='option' to='/'>HOME</Link>

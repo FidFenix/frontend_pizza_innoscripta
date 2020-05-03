@@ -4,6 +4,7 @@
     min-height: 100px;
     border-bottom: 1px solid darkgrey;
     padding: 15px 0;
+    flex-direction: row;
     font-size: 20px;
     align-items: center;
 
@@ -19,7 +20,12 @@
     .address{
         width: 20%;
     }
-    .total {
-        width: 20%;
+    .totaldolar {
+        width: 1%;
+        margin-left: auto;
+    }
+    .totaleuro {
+        width: 1%;
+        margin-left: auto;
     }
   }
