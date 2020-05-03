@@ -39,17 +39,7 @@ function logout() {
 }
 
 function signup( name, email, password ) {
-<<<<<<< HEAD
-    
-    const requestOptions = {
-        'Content-Type': 'application/json'
-    }
-    const primaryRole = '1';
-    return axios.post(`${config.apiUrl}/auth/register/`, { name, email, password, primaryRole} , requestOptions ).then(user => {
-=======
-
     return axios.post(`${config.apiUrl}/auth/register/`, { name, email, password} , {'Content-Type': 'application/json' } ).then(user => {
->>>>>>> development
         localStorage.setItem('currentUser', JSON.stringify(user));
         currentUserSubject.next(user);
         return user;
