@@ -9,13 +9,17 @@
     align-items: center;
 
     .date {
-        width: 22%;
+        width: 15%;
+    }
+    .hour {
+        width: 15%;
     }
     .name {
         width: 20%;
     }
     .last4 {
-        width: 20%;
+        padding-left: 5%;
+        width: 25%;
     }
     .address{
         width: 20%;
