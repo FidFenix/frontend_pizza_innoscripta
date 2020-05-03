@@ -10,7 +10,7 @@ The Project allows users to register, make order for pizzas they can pick on the
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)<br/>
 and it is using the next libraries:<br>
-Markup:  - [x] axios<br/>
+         - [x] axios<br/>
          - [x] node-sass<br/>
          - [x] react<br/>
          - [x] react-dom<br/>
@@ -27,7 +27,8 @@ Markup:  - [x] axios<br/>
          - [x] styled-components<br/>
 
 ## Usage and Installation
-Markup : * Installation<br/>
+Markup: <br/>
+        * Installation<br/>
            * Install nodejs ( higher than Version 10.0)<br/>
            * Clone this repo<br/>
            * Execute command to download all dependancies `npm install`<br/>
