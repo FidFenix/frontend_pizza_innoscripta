@@ -17,10 +17,15 @@ function buyPizzas(user, userinfo, items, price) {
         alert(resp.data.message);
         return resp;
     }).catch(error => {
-        if(error.response.status === 400){
-            alert(error.response.data.message);
+        if( "response" in error ){
+            if( error.response !== undefined ){
+                if('status' in error.response ) { alert(error.response.data.message);}
+                else {console.log( error.response );}
+            }else {
+                console.log( error );
+            }
         }else{
-            console.log(error.response);
+            console.log( error );
         }
     });
 }

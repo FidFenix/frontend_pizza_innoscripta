@@ -25,10 +25,15 @@ function login(username, password) {
         }
         return user;
     }).catch(error => {
-        if(error.response.status === 400){
-            alert(error.response.data.message);
+        if( "response" in error ){
+            if( error.response !== undefined ){
+                if('status' in error.response ) { alert(error.response.data.message);}
+                else {console.log( error.response );}
+            }else {
+                console.log( error );
+            }
         }else{
-            console.log(error.response);
+            console.log( error );
         }
     });
 }
@@ -39,15 +44,21 @@ function logout() {
 }
 
 function signup( name, email, password ) {
+
     return axios.post(`${config.apiUrl}/auth/register/`, { name, email, password} , {'Content-Type': 'application/json' } ).then(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         currentUserSubject.next(user);
         return user;
     }).catch(error => {
-        if(error.response.status === 400){
-            alert(error.response.data.message);
+        if( "response" in error ){
+            if( error.response !== undefined ){
+                if('status' in error.response ) { alert(error.response.data.message);}
+                else {console.log( error.response );}
+            }else {
+                console.log( error );
+            }
         }else{
-            console.log(error.response);
+            console.log( error );
         }
     });
 }
