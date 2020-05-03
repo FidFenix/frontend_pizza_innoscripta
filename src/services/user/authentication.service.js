@@ -24,7 +24,13 @@ function login(username, password) {
             currentUserSubject.next(user);
         }
         return user;
-    }).catch(error => alert(error));
+    }).catch(error => {
+        if(error.response.status === 400){
+            alert(error.response.data.message);
+        }else{
+            console.log(error.response);
+        }
+    });
 }
 
 function logout() {
@@ -34,10 +40,15 @@ function logout() {
 
 function signup( name, email, password ) {
 
-    const primaryRole = '1';
-    return axios.post(`${config.apiUrl}/auth/register/`, { name, email, password, primaryRole} , {'Content-Type': 'application/json' } ).then(user => {
+    return axios.post(`${config.apiUrl}/auth/register/`, { name, email, password} , {'Content-Type': 'application/json' } ).then(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         currentUserSubject.next(user);
         return user;
-    }).catch(error => alert(error));
+    }).catch(error => {
+        if(error.response.status === 400){
+            alert(error.response.data.message);
+        }else{
+            console.log(error.response);
+        }
+    });
 }
