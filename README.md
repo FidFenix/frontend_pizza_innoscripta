@@ -1,30 +1,38 @@
-This prroject is part of the test to work remotely at Innoscripta.
+# The Yummi Pizza (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is part of the test to work remotely at Innoscripta (created by Fidel Mamani Maquera).<br/>
 
-## Available Scripts
+The Project allows user ti register, make order fro pizzas, and pay for them using a fake credit card that is only allowed for testing delivered by Stripe.<br/>
 
-In the project directory, you can run:
+## Architecture of the Complete Appication
 
-### `npm start`
+![alt text](./docs/Main.jpg)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)<br/>
+and it is using the next libraries:<br>
+Markup: - axios
+        - node-sass
+        - react
+        - react-dom
+        - react-promise-tracker
+        - react-redux
+        - react-router-dom
+        - react-scripts
+        - react-stripe-checkout
+        - redux
+        - redux-logger
+        - redux-persist
+        - reselect
+        - rxjs
+        - styled-components
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage and Installation
+ Markup : - Installation
+              - Install nodejs ( higher than V. 10.0)
+              - Clone this repo
+              - Execute command to download all dependancies `npm install`
+              - Execute command to run the app `npm test`
+              - Execute command to run the app `npm start`
+              
+          - Usage
+              - Go to your Browser an open [http://localhost:3000](http://localhost:3000)
