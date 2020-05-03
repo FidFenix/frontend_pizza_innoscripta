@@ -4,4 +4,7 @@ export default config;
 =======
 const config = { apiUrl: 'http://localhost'};
 export default config;
+<<<<<<< HEAD
+>>>>>>> development
+=======
 >>>>>>> development
